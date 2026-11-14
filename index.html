@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090711"><link rel="manifest" href="manifest.webmanifest">
+<title>Ghost Aura Free</title>
+<style>
+:root{--bg:#090711;--panel:#151222;--panel2:#1c1730;--purple:#9b5cff;--pink:#d45cff;--text:#f6f1ff;--muted:#aaa1bd;--line:#302544}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#29134a 0,transparent 40%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}
+.wrap{max-width:760px;margin:auto;padding:22px 16px 40px}.top{display:flex;align-items:center;justify-content:space-between;margin:8px 0 24px}.brand{display:flex;gap:12px;align-items:center}.logo{width:48px;height:48px;border-radius:16px;background:linear-gradient(135deg,#a855f7,#5525a8);display:grid;place-items:center;font-size:24px;box-shadow:0 8px 30px #8b38ff55}.brand h1{font-size:20px;margin:0}.brand small{color:var(--muted)}.pill{border:1px solid #4c2d70;color:#d9baff;padding:7px 11px;border-radius:99px;font-size:12px}
+.hero{padding:22px;border:1px solid #49306a;border-radius:22px;background:linear-gradient(125deg,#25143e,#151022 70%);margin-bottom:18px}.hero h2{font-size:24px;margin:0 0 8px}.hero p{margin:0;color:#c7bdd7;line-height:1.7}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.card{background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:18px;padding:16px;margin-bottom:14px}.card h3{margin:0 0 14px;font-size:16px}.field{margin:13px 0}.field label{display:flex;justify-content:space-between;color:#d7cde5;font-size:13px;margin-bottom:8px}.field output{color:#d6aaff;font-weight:700}input[type=range]{width:100%;accent-color:var(--purple)}input[type=text],select{width:100%;padding:12px;border-radius:12px;border:1px solid var(--line);background:#0e0b17;color:white;font:inherit}.btn{border:0;border-radius:13px;padding:12px 16px;color:white;font-weight:700;background:linear-gradient(110deg,#8b43e8,#c04ee8);font:inherit;cursor:pointer}.btn.secondary{background:#29213b;border:1px solid #4a3a62}.actions{display:flex;gap:9px;flex-wrap:wrap}.note{color:var(--muted);font-size:12px;line-height:1.7}.stat{font-size:27px;font-weight:800;color:#d6aaff}.stat small{font-size:12px;color:var(--muted);font-weight:400}.tabs{display:flex;gap:8px;margin:16px 0}.tabs button{flex:1}.hidden{display:none}.footer{text-align:center;color:#80758f;font-size:11px;margin-top:18px}
+@media(max-width:480px){.grid{grid-template-columns:1fr}.hero h2{font-size:21px}}
+</style></head><body><main class="wrap">
+<header class="top"><div class="brand"><div class="logo">👻</div><div><h1>GHOST AURA <span style="color:#c28aff">FREE</span></h1><small>لوحة إعداداتك الشخصية</small></div></div><span class="pill">مجاني 100%</span></header>
+<section class="hero"><h2>تحكّم بإعداداتك بطريقتك</h2><p>خصص الحساسية، احسب قيمة DPI، واحفظ ملفاتك على جهازك. هذا التطبيق لا يتصل باللعبة ولا يغيّر ملفاتها.</p></section>
+<div class="tabs"><button class="btn" id="tabSens">الحساسية</button><button class="btn secondary" id="tabDpi">حاسبة DPI</button></div>
+<section id="sens">
+<div class="card"><h3>🎯 إعدادات الحساسية</h3>
+<div class="field"><label>عام <output id="v0">95</output></label><input type="range" min="0" max="200" value="95" data-out="v0"></div>
+<div class="field"><label>النقطة الحمراء <output id="v1">90</output></label><input type="range" min="0" max="200" value="90" data-out="v1"></div>
+<div class="field"><label>منظار 2X <output id="v2">85</output></label><input type="range" min="0" max="200" value="85" data-out="v2"></div>
+<div class="field"><label>منظار 4X <output id="v3">80</output></label><input type="range" min="0" max="200" value="80" data-out="v3"></div>
+<div class="field"><label>منظار القناصة <output id="v4">55</output></label><input type="range" min="0" max="200" value="55" data-out="v4"></div>
+<div class="field"><label>النظرة الحرة <output id="v5">70</output></label><input type="range" min="0" max="200" value="70" data-out="v5"></div>
+<div class="actions"><button class="btn" id="saveSens">حفظ الإعدادات</button><button class="btn secondary" id="resetSens">إعادة ضبط</button></div></div>
+<div class="card"><h3>💾 ملفات الإعدادات</h3><input type="text" id="profileName" placeholder="اسم الملف، مثال: إعداداتي"/><div class="actions" style="margin-top:10px"><button class="btn" id="saveProfile">حفظ كملف</button><button class="btn secondary" id="exportProfile">تصدير JSON</button></div><p class="note" id="profileMsg">يتم حفظ الإعدادات محلياً على جهازك فقط.</p></div>
+</section>
+<section id="dpi" class="hidden"><div class="card"><h3>📐 حاسبة DPI</h3><p class="note">أدخل قيمة DPI الحالية وحجم التغيير المطلوب لحساب قيمة مقترحة. الحاسبة لا تغيّر إعدادات الهاتف تلقائياً.</p><div class="field"><label>قيمة DPI الحالية</label><input type="number" id="currentDpi" value="400" min="1" max="2000"></div><div class="field"><label>معامل التغيير</label><select id="factor"><option value="0.9">أقل بنسبة 10%</option><option value="1" selected>بدون تغيير</option><option value="1.1">أعلى بنسبة 10%</option><option value="1.2">أعلى بنسبة 20%</option><option value="1.25">أعلى بنسبة 25%</option></select></div><div class="card" style="background:#100c1a"><div class="note">القيمة المحسوبة</div><div class="stat" id="dpiResult">400 <small>DPI</small></div></div><button class="btn" id="calcDpi">احسب الآن</button></div></section>
+<p class="footer">Ghost Aura Free • أداة مستقلة للإعدادات الشخصية</p>
+</main><script>
+const sliders=[...document.querySelectorAll('input[type=range]')];sliders.forEach(s=>s.addEventListener('input',()=>document.getElementById(s.dataset.out).textContent=s.value));
+function values(){return sliders.map(s=>Number(s.value))}function setValues(a){sliders.forEach((s,i)=>{s.value=a?.[i]??[95,90,85,80,55,70][i];document.getElementById(s.dataset.out).textContent=s.value})}
+document.getElementById('saveSens').onclick=()=>{localStorage.setItem('ga_sens',JSON.stringify(values()));document.getElementById('profileMsg').textContent='تم حفظ إعدادات الحساسية على هذا الجهاز.'};document.getElementById('resetSens').onclick=()=>setValues();
+document.getElementById('saveProfile').onclick=()=>{let name=document.getElementById('profileName').value.trim()||'إعداداتي';let all=JSON.parse(localStorage.getItem('ga_profiles')||'{}');all[name]=values();localStorage.setItem('ga_profiles',JSON.stringify(all));document.getElementById('profileMsg').textContent='تم حفظ الملف: '+name};
+document.getElementById('exportProfile').onclick=()=>{let blob=new Blob([JSON.stringify({app:'Ghost Aura Free',sensitivity:values()},null,2)],{type:'application/json'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='ghost-aura-settings.json';a.click();URL.revokeObjectURL(a.href)};
+document.getElementById('calcDpi').onclick=()=>{let n=Math.max(1,Math.min(2000,Number(document.getElementById('currentDpi').value)||400));let f=Number(document.getElementById('factor').value);document.getElementById('dpiResult').innerHTML=Math.round(n*f)+' <small>DPI</small>'};
+document.getElementById('tabSens').onclick=()=>{document.getElementById('sens').classList.remove('hidden');document.getElementById('dpi').classList.add('hidden');document.getElementById('tabSens').className='btn';document.getElementById('tabDpi').className='btn secondary'};document.getElementById('tabDpi').onclick=()=>{document.getElementById('dpi').classList.remove('hidden');document.getElementById('sens').classList.add('hidden');document.getElementById('tabDpi').className='btn';document.getElementById('tabSens').className='btn secondary'};
+try{let saved=JSON.parse(localStorage.getItem('ga_sens'));if(saved)setValues(saved)}catch(e){}
+if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>{});
+</script></body></html>
